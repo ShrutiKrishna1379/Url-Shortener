@@ -6,18 +6,21 @@ import urlRoutes from './routes/urlRoutes.js';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 
 mongoose
     .connect(process.env.MONGO_URI, {
-        dbName: 'URL_Shortener_Project',
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        dbName: 'URL_Shortener_Project',
     })
     .then(() => console.log('Mongodb Connected'))
     .catch((error) => console.log(error));
+
+// Serve static files from the public directory
+app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 app.set('views', './src/views');

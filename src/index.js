@@ -32,4 +32,4 @@ app.get('/', (req, res) => {
 // Use the routes
 app.use('/', urlRoutes);
 
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+export default app;

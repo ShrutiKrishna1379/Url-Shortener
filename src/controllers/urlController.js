@@ -13,7 +13,7 @@ export const urlShort = async (req, res) => {
 
     console.log("URL shortened successfully:", newUrl);
 
-    res.render("server.ejs", { shortUrl });
+    res.render("server", { shortUrl });
 };
 
 export const getOriginalUrl = async (req,res)=>{

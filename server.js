@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "src", "views"));
 
 app.get('/', (req, res) => {
-    res.render('server.ejs', { shortUrl: null });
+    res.render('server', { shortUrl: null });
 });
 
 // handle url submission

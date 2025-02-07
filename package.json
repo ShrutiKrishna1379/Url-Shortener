@@ -2,14 +2,13 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "A URL shortener project using Express.js and Mongoose",
-  "main": "src/server.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "start": "nodemon server.js"
   },
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "ejs": "^3.1.10",
     "express": "^4.17.1",
     "mongoose": "^5.12.3",

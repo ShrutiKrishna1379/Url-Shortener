@@ -1,12 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import urlRoutes from '../src/routes/urlRoutes.js';
+import urlRoutes from './src/routes/urlRoutes.js';
 
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT ;
 
 app.use(express.urlencoded({ extended: true }));
 

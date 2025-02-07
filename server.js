@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import urlRoutes from './src/routes/urlRoutes.js';
+import { urlShort, getOriginalUrl } from "./src/controllers/urlController.js";
 
 dotenv.config();
 
@@ -26,10 +26,13 @@ app.set('view engine', 'ejs');
 app.set('views', './src/views');
 
 app.get('/', (req, res) => {
-    res.render('server', { shortUrl: null });
+    res.render('server.ejs', { shortUrl: null });
 });
 
-// Use the routes
-app.use('/', urlRoutes);
+// handle url submission
+  app.post("/shorten", urlShort);
 
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+// redirect to original url using short url
+  app.get("/:shortCode", getOriginalUrl);
+
+app.listen(port, () =>  console.log(`Server is running on port ${port}`));
